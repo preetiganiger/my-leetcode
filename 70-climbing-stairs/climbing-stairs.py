@@ -3,11 +3,11 @@ class Solution(object):
     
     def climbStairs(self, n):
       self.dp=[-1]*(n+1)
+      
       def fun(n,dp):
-         if n==0 or n==1:
-            return 1
-         if self.dp[n]!=-1:
-           return self.dp[n]
-         self.dp[n]= fun(n-1,dp)+ fun(n-2,dp)
-         return self.dp[n]     
-      return fun(n,self.dp)   
+        self.dp[0]=1
+        self.dp[1]=1
+        for i in range (2,n+1):
+          dp[i ]= dp[i-1]+dp[i-2]
+        return self.dp[n]
+      return fun(n,self.dp)
